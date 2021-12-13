@@ -240,11 +240,10 @@ body {
     outline: none;
 }
 
-.Missing h2,
-.PostPage h2,
 .Missing p,
-.PostPage p {
-    margin-bottom: 1rem;
+.PostPage p,
+.newPost p {
+    margin-top: 1rem;
 }
 
 .PostPage button {
@@ -252,10 +251,21 @@ body {
     min-width: 48px;
     border-radius: 0.25rem;
     padding: 0.5rem;
+    margin-right: 0.5rem;
     font-size: 1rem;
-    background-color: red;
     color: #fff;
     cursor: pointer;
+}
+.PostPage button :last-child {
+    margin-right: 0;
+}
+
+.deleteButton {
+    background-color: red;
+}
+
+.editButton {
+    background-color: #333;
 }
 
 .statusMsg {

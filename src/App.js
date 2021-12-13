@@ -3,6 +3,7 @@ import Home from './Home';
 import About from './About';
 import PostPage from './PostPage';
 import NewPost from './NewPost';
+import EditPost from './EditPost';
 import Missing from './Missing';
 import { FiLoader } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
@@ -27,7 +28,7 @@ function App() {
                 const response = await api.get('/posts');
                 setPosts(response.data);
             } catch (err) {
-                handleErrors(err);
+                handleError(err);
             } finally {
                 setIsLoading(false);
             }
@@ -59,23 +60,25 @@ function App() {
             setPostBody('');
             navigate('/');
         } catch (err) {
-            handleErrors(err);
+            handleError(err);
         }
     };
 
     const handleEdit = async (id) => {
         const datetime = format(new Date(), 'MMMM dd, yyyy pp');
-        const updatePost = { id, title: editTitle, datetime, body: editBody };
+        const updatedPost = { id, title: editTitle, datetime, body: editBody };
         try {
-            const response = await api.put(`/posts/${id}`, updatePost);
+            const response = await api.put(`/posts/${id}`, updatedPost);
             setPosts(
                 posts.map((post) =>
                     post.id === id ? { ...response.data } : post
                 )
             );
+            setEditTitle('');
+            setEditBody('');
             navigate('/');
         } catch (err) {
-            handleErrors(err);
+            handleError(err);
         }
     };
 
@@ -86,11 +89,11 @@ function App() {
             setPosts(postsList);
             navigate('/');
         } catch (err) {
-            handleErrors(err);
+            handleError(err);
         }
     };
 
-    const handleErrors = (err) => {
+    const handleError = (err) => {
         if (err.response) {
             console.log(`Error: ${err.response.status}:`);
             console.log(err.response.data.message);
@@ -130,6 +133,19 @@ function App() {
                             <PostPage
                                 posts={posts}
                                 handleDelete={handleDelete}
+                            />
+                        }
+                    />
+                    <Route
+                        path=':id/edit'
+                        element={
+                            <EditPost
+                                posts={posts}
+                                editTitle={editTitle}
+                                setEditTitle={setEditTitle}
+                                editBody={editBody}
+                                setEditBody={setEditBody}
+                                handleEdit={handleEdit}
                             />
                         }
                     />
