@@ -1,14 +1,19 @@
 import React from 'react';
 import Feed from './Feed';
 import { FiLoader, FiFrown } from 'react-icons/fi';
+import { useContext } from 'react';
+import DataContext from './context/DataContext';
 
-const Home = ({ posts, isLoading, fetchError }) => {
+const Home = () => {
+    const { searchResults, isLoading, fetchError } = useContext(DataContext);
+    const loadingMsg = 'Loading...';
+
     return (
         <main className='Home'>
             {isLoading && (
                 <>
                     <FiLoader className='image loader' />
-                    <p className='msg load'>Loading...</p>
+                    <p className='msg load'>{loadingMsg}</p>
                 </>
             )}
             {!isLoading && fetchError && (
@@ -19,7 +24,11 @@ const Home = ({ posts, isLoading, fetchError }) => {
             )}
             {!isLoading &&
                 !fetchError &&
-                (posts.length ? <Feed posts={posts} /> : <p>No Posts!</p>)}
+                (searchResults.length ? (
+                    <Feed posts={searchResults} />
+                ) : (
+                    <p>No Posts!</p>
+                ))}
         </main>
     );
 };
