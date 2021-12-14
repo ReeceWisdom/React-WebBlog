@@ -5,14 +5,14 @@ import PostPage from './PostPage';
 import NewPost from './NewPost';
 import EditPost from './EditPost';
 import Missing from './Missing';
-import { FiLoader } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import api from './api/posts';
+import useWindowSize from './hooks/useWindowSize';
+import useAxiosFetch from './hooks/useAxiosFetch';
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true);
     const [posts, setPosts] = useState([]);
     const [search, setSearch] = useState('');
     const [searchResults, setSearchResults] = useState([]);
@@ -22,21 +22,14 @@ function App() {
     const [editBody, setEditBody] = useState('');
     const navigate = useNavigate();
 
+    const { width } = useWindowSize();
+    const { data, fetchError, isLoading } = useAxiosFetch(
+        'http://lofcalhost:3100/posts'
+    );
+
     useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const response = await api.get('/posts');
-                setPosts(response.data);
-            } catch (err) {
-                handleError(err);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        setTimeout(() => {
-            fetchPosts();
-        }, 1000);
-    }, []);
+        setPosts(data);
+    }, [data]);
 
     useEffect(() => {
         const filterResults = posts.filter(
@@ -107,13 +100,24 @@ function App() {
         <Routes>
             <Route
                 path='/'
-                element={<Layout search={search} setSearch={setSearch} />}>
-                {isLoading && (
-                    <Route index element={<FiLoader className='loader' />} />
-                )}
-                {!isLoading && (
-                    <Route index element={<Home posts={searchResults} />} />
-                )}
+                element={
+                    <Layout
+                        title={'React JS Blog'}
+                        width={width}
+                        search={search}
+                        setSearch={setSearch}
+                    />
+                }>
+                <Route
+                    index
+                    element={
+                        <Home
+                            posts={searchResults}
+                            isLoading={isLoading}
+                            fetchError={fetchError}
+                        />
+                    }
+                />
                 <Route path='post'>
                     <Route
                         index

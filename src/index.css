@@ -39,17 +39,26 @@ body {
     box-shadow: 0px 0px 15px gray;
 }
 
-.loader {
+.image {
     width: 150px;
     height: 150px;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    margin-left: 35.8vw;
+}
+
+.error {
+    color: #333;
+}
+
+.loader {
+    margin-left: 35vw;
     color: #66d8f5;
     animation-name: spin;
     animation-duration: 2500ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
 }
 
 @keyframes spin {
@@ -172,6 +181,21 @@ body {
     border-bottom: 1px solid lightgray;
 }
 
+.Home .msg {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.err {
+    color: #333;
+}
+
+.load {
+    color: #66d8f5;
+}
+
 .Home .post a {
     text-decoration: none;
 }
@@ -266,10 +290,6 @@ body {
 
 .editButton {
     background-color: #333;
-}
-
-.statusMsg {
-    margin-top: 2rem;
 }
 
 @media only screen and (min-width: 610px) {
