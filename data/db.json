@@ -1,40 +1,40 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "My 1st Post",
-      "datetime": "July 01, 2021 11:17:36 AM",
-      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-    },
-    {
-      "id": 2,
-      "title": "My 2nd Post",
-      "datetime": "July 01, 2021 11:17:36 AM",
-      "body": "Quis consequatur expedita, assumenda similique non optio!"
-    },
-    {
-      "id": 3,
-      "title": "My 3rd Post",
-      "datetime": "July 01, 2021 11:17:36 AM",
-      "body": "Modi nesciunt excepturi corrupti atque blanditiis quo nobis."
-    },
-    {
-      "id": 4,
-      "title": "My 4th Post",
-      "datetime": "July 01, 2021 11:17:36 AM",
-      "body": "Non optio quae possimus illum exercitationem ipsa!"
-    },
-    {
-      "id": 6,
-      "title": "useContext",
-      "datetime": "December 15, 2021 11:13:47 AM",
-      "body": "New Post using useContext React hook"
-    },
-    {
-      "id": 7,
-      "title": "Refactoring useContext",
-      "datetime": "December 15, 2021 11:14:00 AM",
-      "body": "Testing NewPost & EditPost after refactoring DataContext"
-    }
-  ]
+    "posts": [
+        {
+            "id": 1,
+            "title": "My 1st Post",
+            "datetime": "July 01, 2021 11:17:36 AM",
+            "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        },
+        {
+            "id": 2,
+            "title": "My 2nd Post",
+            "datetime": "July 01, 2021 11:17:36 AM",
+            "body": "Quis consequatur expedita, assumenda similique non optio!"
+        },
+        {
+            "id": 3,
+            "title": "My 3rd Post",
+            "datetime": "July 01, 2021 11:17:36 AM",
+            "body": "Modi nesciunt excepturi corrupti atque blanditiis quo nobis."
+        },
+        {
+            "id": 4,
+            "title": "My 4th Post",
+            "datetime": "July 01, 2021 11:17:36 AM",
+            "body": "Non optio quae possimus illum exercitationem ipsa!"
+        },
+        {
+            "id": 6,
+            "title": "useContext",
+            "datetime": "December 15, 2021 11:13:47 AM",
+            "body": "New Post using useContext React hook"
+        },
+        {
+            "id": 7,
+            "title": "Refactoring useContext",
+            "datetime": "December 15, 2021 11:14:00 AM",
+            "body": "Testing NewPost & EditPost after refactoring DataContext"
+        }
+    ]
 }
