@@ -27,8 +27,14 @@
     {
       "id": 6,
       "title": "useContext",
-      "datetime": "December 14, 2021 4:08:52 PM",
-      "body": "New post using useContext React hook"
+      "datetime": "December 15, 2021 11:13:47 AM",
+      "body": "New Post using useContext React hook"
+    },
+    {
+      "id": 7,
+      "title": "Refactoring useContext",
+      "datetime": "December 15, 2021 11:14:00 AM",
+      "body": "Testing NewPost & EditPost after refactoring DataContext"
     }
   ]
 }
